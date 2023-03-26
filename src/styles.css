@@ -1,0 +1,10 @@
+body {
+  font-family: "Roboto", sans-serif;
+  background-color: #b54531;
+  color: #fff;
+}
+
+.btcPrice {
+  font-size: 3rem;
+  font-weight: 700;
+}
