@@ -1,33 +1,27 @@
-import "./styles.css";
-import {ownerDocument}  from "dom-lib";
-import { DomainApp } from "./Domain";
+import "./styles.css"
+import { ownerDocument } from "dom-lib"
+import { DomainApp } from "./Domain"
 
-type DOMElementType = Element;
+type DOMElementType = Element
 
-const domain = DomainApp.create();
+const domain = DomainApp.create()
 
-function getElement(id: string): (DOMElementType | null) {
-  const doc = ownerDocument(document.documentElement);
-  const element = doc.getElementById(id);
+function getElement(id: string): DOMElementType | null {
+  const doc = ownerDocument(document.documentElement)
+  const element = doc.getElementById(id)
   if (!element) {
-    throw new Error(`Element with id '${id}' not found`);
+    throw new Error(`Element with id '${id}' not found`)
   }
-  return element;
+  return element
 }
 
-
 domain.getBTCPriceUseCase.execute({ fiatCurrencyCode: "USD" }).then((response) => {
-  console.log("price", response);
-  const price = response.bpi;
-  getElement("price").innerHTML = `$ ${price}`;
-});
+  console.log("price", response)
+  const price = response.bpi
+  getElement("price").innerHTML = `<div id="price" class="btcPrice"><h1>BTC Price index</h1>${price}</div>`
+})
 
-
-const price = "...loading";
+const price = "...loading"
 
 getElement("app").innerHTML = `
-<h1>BTC Price index</h1>
-  <p>
-    Getting the current price of Bitcoin in USD from the <a href="https://www.coindesk.com/price/bitcoin">CoinDesk Price Index</a>.
-  </p>
-<div id="price" class="btcPrice">$ ${price}</div>`;
+<div id="price" class="btcPrice">${price}</div>`

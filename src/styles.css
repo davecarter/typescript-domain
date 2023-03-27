@@ -1,10 +1,45 @@
 body {
   font-family: "Roboto", sans-serif;
-  background-color: #b54531;
-  color: #fff;
+  background-color: #ffa800;
+  margin: 0;
+  padding: 0;
+  color: #000;
 }
 
 .btcPrice {
-  font-size: 3rem;
+  font-size: 4rem;
   font-weight: 700;
+  padding: 1.2em 3em;
+  line-height: 1.8em;
+  letter-spacing: -4px;
+}
+
+.btcPrice h1 {
+  margin: 0;
+}
+
+.footer {
+  position: fixed;
+  bottom: 0;
+  background-color: #ff8001;
+  width: 100%;
+  padding: 12px;
+}
+
+a {
+  text-decoration: none;
+  font-weight: bold;
+  color: #000;
+}
+
+.logo {
+  width: 500px;
+  background-repeat: no-repeat;
+  background-position: top;
+  height: 800px;
+  position: fixed;
+  z-index: -1;
+  background-size: contain;
+  display: flex;
+  background-image: url("https://magnetic-raven.static.app/btc-logo.jpg");
 }
