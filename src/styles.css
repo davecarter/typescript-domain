@@ -1,5 +1,5 @@
 body {
-  font-family: "Roboto", sans-serif;
+  font-family: "Inter", sans-serif;
   background-color: #ffa800;
   margin: 0;
   padding: 0;
@@ -8,14 +8,15 @@ body {
 
 .btcPrice {
   font-size: 4rem;
-  font-weight: 700;
-  padding: 1.2em 3em;
+  font-weight: 800;
+  padding: 0.9em 3em;
   line-height: 1.8em;
-  letter-spacing: -4px;
 }
 
 .btcPrice h1 {
   margin: 0;
+  font-weight: 900;
+  letter-spacing: -4px;
 }
 
 .footer {
