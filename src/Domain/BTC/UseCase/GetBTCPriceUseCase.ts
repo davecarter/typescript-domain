@@ -1,29 +1,27 @@
-import { HttpRepository } from "../Repository";
-import { FiatCurrencyValueObject } from "../Models";
-import { FiatCurrencyCode } from "./types";
+import { HttpRepository } from "../Repository"
+import { FiatCurrencyValueObject } from "../Models"
+import { FiatCurrencyCode } from "../../types"
 
 export class GetBTCPriceUseCase {
-  #repository;
+  #repository
 
-  constructor({ repository }) {
-    this.#repository = repository;
+  constructor({ repository }: any) {
+    if (!repository) throw new Error("Repository not provided")
+    this.#repository = repository
   }
 
   static create() {
-    const repository = HttpRepository.create();
-    return new GetBTCPriceUseCase({ repository });
+    const repository = HttpRepository.create()
+    return new GetBTCPriceUseCase({ repository })
   }
 
-  async execute({ fiatCurrencyCode } : { fiatCurrencyCode: FiatCurrencyCode } = {fiatCurrencyCode:"EUR"}): Promise<ResponseType> {
-    console.log("GetBTCPriceUseCase.execute", { fiatCurrencyCode });
-    const fiatCurrencyCodeVO = FiatCurrencyValueObject.create({
-      fiatCurrencyCode
-    });
+  async execute({ fiatCurrencyCode }: { fiatCurrencyCode: FiatCurrencyCode }): Promise<ResponseType> {
+    const fiatCurrencyCodeVO = FiatCurrencyValueObject.create({ fiatCurrencyCode })
 
     const responseVO = await this.#repository.getBTCPriceIndex({
       fiatCurrencyCodeVO
-    });
+    })
 
-    return responseVO.toJSON();
+    return responseVO.toJSON()
   }
 }
