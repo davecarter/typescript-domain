@@ -1,14 +1,20 @@
 import axios from "axios"
-import { config } from "../../config"
+import { Config } from "../../types"
 import { FromBpiApiRespToBpiVOMapper } from "../Mapper/FromBpiApiRespToBpiVOMapper"
 
 export class HttpRepository {
-  static create() {
-    return new HttpRepository()
+  #config
+
+  static create(config: Config) {
+    return new HttpRepository(config);
+  }
+
+  constructor(config: Config) {
+    this.#config = config;
   }
 
   async getBTCPriceIndex({ fiatCurrencyCodeVO }) {
-    const { COINDESK_API_URL } = config
+    const { COINDESK_API_URL } = this.#config
     const fiatCurrencyCodeValue = fiatCurrencyCodeVO.value()
     const url = `${COINDESK_API_URL}${fiatCurrencyCodeValue}.json`
     console.log("URL", url)
