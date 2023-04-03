@@ -1,10 +1,10 @@
 import "./styles.css"
 import { ownerDocument } from "dom-lib"
 import { DomainApp } from "./Domain"
-
+import { config } from "./Domain/config"
 type DOMElementType = Element
 
-const domain = DomainApp.create()
+const domain = DomainApp.create({ config })
 
 function getElement(id: string): DOMElementType | null {
   const doc = ownerDocument(document.documentElement)
