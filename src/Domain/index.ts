@@ -22,6 +22,7 @@ export class DomainApp {
 
   _getter(name: string) {
     const useCaseConstructor = useCases[name]
+    const config = this.#config
     return {
       async execute(...args: any[]) {
         const useCaseInstance = useCaseConstructor.create(config)
