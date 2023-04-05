@@ -9,11 +9,11 @@ export class BitcoinPriceIndexValueObject {
     this._bpi = bpi
   }
 
-  value() {
+  value() : string {
     return this._bpi
   }
 
-  serialize() {
+  serialize() : { bpi: string } {
     return {
       bpi: this.value()
     }
