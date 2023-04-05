@@ -24,6 +24,6 @@ export class GetBTCPriceUseCase extends UseCase {
       fiatCurrencyCodeVO
     })
 
-    return responseVO.toJSON()
+    return responseVO.serialize()
   }
 }
