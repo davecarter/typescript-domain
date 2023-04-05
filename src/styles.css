@@ -42,5 +42,5 @@ a {
   z-index: -1;
   background-size: contain;
   display: flex;
-  background-image: url("https://magnetic-raven.static.app/btc-logo.jpg");
+  background-image: url("./statics/btc-logo.jpg");
 }
