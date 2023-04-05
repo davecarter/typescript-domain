@@ -1,9 +1,11 @@
 export class BitcoinPriceIndexValueObject {
-  static create({ bpi }) {
+  private _bpi: string
+
+  static create({ bpi }: { bpi: string }) {
     return new BitcoinPriceIndexValueObject({ bpi })
   }
 
-  constructor({ bpi }) {
+  constructor({ bpi }: { bpi: string }) {
     this._bpi = bpi
   }
 
@@ -11,7 +13,7 @@ export class BitcoinPriceIndexValueObject {
     return this._bpi
   }
 
-  toJSON() {
+  serialize() {
     return {
       bpi: this.value()
     }
